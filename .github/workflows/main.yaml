@@ -20,4 +20,4 @@ jobs:
 
     - name: Deploy to S3
       run: |
-        aws s3 sync ./webhosting123 s3://${{ env.AWS_S3_BUCKET }}/
+        aws s3 sync ./webhosting123 s3://${{ vars.AWS_S3_BUCKET }}/
