@@ -9,11 +9,13 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
+    - name: Read a variable
+      run: echo "my AWS_S3_BUCKET is ${{ vars.AWS_S3_BUCKET }}"
     - uses: actions/checkout@master
     - uses: jakejarvis/s3-sync-action@master
       with:
         args: --acl public-read --follow-symlinks --delete --exclude '.git*/*'
       env:
-        AWS_S3_BUCKET: webhosting-dd
+        AWS_S3_BUCKET: ${{ vars.AWS_S3_BUCKET}}
         AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
         AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
