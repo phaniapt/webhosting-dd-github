@@ -11,6 +11,8 @@ jobs:
     steps:
     - name: Read a variable
       run: echo "my AWS_S3_BUCKET is ${{ vars.AWS_S3_BUCKET }}"
+    - name: Read an env variable
+      run: echo "my AWS_S3_BUCKET is ${{ env.AWS_S3_BUCKET }}"
     - uses: actions/checkout@master
     - uses: jakejarvis/s3-sync-action@master
       with:
