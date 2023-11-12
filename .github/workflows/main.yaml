@@ -11,7 +11,7 @@ jobs:
     steps:
     - name: Read a variable
       run: | 
-      echo "AWS_S3_BUCKET : $AWS_S3_BUCKET"
+        echo "AWS_S3_BUCKET : $AWS_S3_BUCKET"
     - uses: actions/checkout@master
     - uses: jakejarvis/s3-sync-action@master
       with:
